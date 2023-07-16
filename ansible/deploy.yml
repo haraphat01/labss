@@ -1,5 +1,9 @@
+# ansible/deploy.yml
 - name: Deploy Docker image to Docker Hub
-  hosts: all
+  hosts: localhost
   become: true
   roles:
-    - role: docker_deploy
+    - role: web_app
+      vars:
+        web_app_image: "haraphat01/moscowtime"
+        web_app_port: 8080

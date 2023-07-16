@@ -1,0 +1,4 @@
+# roles/web_app/meta/main.yml
+---
+dependencies:
+  - role: docker
