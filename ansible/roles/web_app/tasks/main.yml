@@ -7,4 +7,5 @@
   template:
     src: docker-compose.yml.j2
     dest: /app_python/docker-compose.yml
+    command: docker-compose up -d
   tags: deploy

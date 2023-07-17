@@ -1,4 +1,5 @@
 # ansible/deploy.yml
+---
 - name: Deploy Docker image to Docker Hub
   hosts: localhost
   become: true
