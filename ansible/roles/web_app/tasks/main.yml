@@ -1,11 +1,11 @@
-- name: Create /app_python directory
-  file:
-    path: /app_python
-    state: directory
-
 - name: Deliver docker-compose.yml file
   template:
     src: docker-compose.yml.j2
     dest: /app_python/docker-compose.yml
-    command: docker-compose up -d
+  tags: deploy
+
+- name: Start Docker containers
+  docker_compose:
+    project_src: /app_python
+    state: present
   tags: deploy
