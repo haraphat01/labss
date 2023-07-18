@@ -8,4 +8,4 @@
   docker_compose:
     project_src: /app_python
     state: present
-  tags: deploy
+  tags: deploy 
