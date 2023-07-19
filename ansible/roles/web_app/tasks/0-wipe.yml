@@ -1,18 +1,18 @@
-# roles/web_app/tasks/0-wipe.yml
+# # roles/web_app/tasks/0-wipe.yml
 ---
 - name: Remove Docker container and all related files
   block:
-    - name: Stop and remove Docker container
-      docker_container:
-        name: " infallible_clark"
+    - name: create /app_python directory
+      file:
+      path: /app_python
+      state: directory
+
+    - name: Stop and remove Docker Compose application
+      docker_compose:
+        project_src: /app_python/
         state: absent
 
-    - name: Remove Docker image
-      docker_image:
-        name: "moscowtime "
-        state: absent
-
-    - name: Remove docker-compose.yml file
+    - name: Remove docker-compose.yml folder
       file:
         path: /app_python/docker-compose.yml
         state: absent
